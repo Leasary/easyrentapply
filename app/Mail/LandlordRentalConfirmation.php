@@ -11,6 +11,10 @@ use Illuminate\Queue\SerializesModels;
 class LandlordRentalConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
+    /**
+     * @var Rental
+     */
+    private Rental $rental;
 
     /**
      * Create a new message instance.
@@ -29,6 +33,6 @@ class LandlordRentalConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.landlord-rental-confirmation');
+        return $this->markdown('emails.landlord-rental-confirmation')->with('rental', $this->rental);
     }
 }

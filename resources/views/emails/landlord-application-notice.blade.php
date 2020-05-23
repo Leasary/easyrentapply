@@ -1,9 +1,9 @@
 @component('mail::message')
 # New Application
 
-You have a new application
+You have a new application at {{ config('app.name') }}!
 
-@component('mail::button', ['url' => '#'])
+@component('mail::button', ['url' => route('view', [$rental, $application, $rental->password])])
     View Application
 @endcomponent
 

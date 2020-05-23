@@ -1,11 +1,7 @@
 @component('mail::message')
-# Introduction
+# Application Confirmation
 
-The body of your message.
-
-@component('mail::button', ['url' => '#'])
-    View Application
-@endcomponen
+Your application has been successfully submitted, the landlord will be in touch.
 
 Thanks,<br>
 {{ config('app.name') }}

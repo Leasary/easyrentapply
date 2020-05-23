@@ -11,6 +11,10 @@ use Illuminate\Queue\SerializesModels;
 class TenantApplicationConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
+    /**
+     * @var Rental
+     */
+    private Rental $rental;
 
     /**
      * Create a new message instance.

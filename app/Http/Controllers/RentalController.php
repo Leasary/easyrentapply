@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Mail\LandlordApplicationNotice;
+use App\Mail\TenantApplicationConfirmation;
 use App\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -179,8 +181,8 @@ class RentalController extends Controller
 
         $rental->applications()->save($application);
 
-        Mail::to($rental->email)->send(new \App\Mail\LandlordApplicationNotice($rental));
-        Mail::to($application->email)->send(new \App\Mail\TenantApplicationConfirmation($rental));
+        Mail::to($rental->email)->send(new LandlordApplicationNotice($rental, $application));
+        Mail::to($application->email)->send(new TenantApplicationConfirmation($rental));
 
         return redirect(route('thanks'));
     }

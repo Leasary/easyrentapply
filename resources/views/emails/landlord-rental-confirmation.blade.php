@@ -3,8 +3,8 @@
 
 Your rental has been posted.
 
-@component('mail::button', ['url' => '#'])
-    View Rental
+@component('mail::button', ['url' => route('manage', [$rental, $rental->password])])
+    Manage Rental
 @endcomponent
 
 
