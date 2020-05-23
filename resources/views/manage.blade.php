@@ -14,6 +14,4 @@
         <li><a href="{{ route('view', [$rental, $app, $rental->password]) }}">{{ $app->first_name }} {{ $app->last_name }} - {{ $app->email }} {{ $app->phone }}</a></li>
     @endforeach
     </ul>
-
-    <pre>{{ json_encode($rental->applications, JSON_PRETTY_PRINT) }}</pre>
 @endsection
