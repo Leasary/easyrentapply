@@ -3,7 +3,7 @@
 @section('content')
     <h4>Your Rental</h4>
 
-    <p><strong>Application URL:</strong> <a href="{{ route('apply', $rental) }}">{{ route('apply', $rental) }}</a></p>
+    <p><strong>Application URL:</strong> <br><a href="{{ route('apply', $rental->slug) }}">{{ route('apply', $rental->slug) }}</a></p>
 
     <p><strong>Address:</strong> {{ $rental->fullAddress() }}</p>
 

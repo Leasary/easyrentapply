@@ -21,6 +21,6 @@ Route::get('/create', 'RentalController@create')->name('create');
 Route::post('/create', 'RentalController@postCreate')->name('postCreate');
 Route::get('/manage/{rental}/{password}', 'RentalController@manage')->name('manage');
 Route::get('/view/{rental}/{application}/{password}', 'RentalController@view')->name('view');
-Route::get('/apply/{rental}', 'RentalController@apply')->name('apply');
-Route::post('/apply/{rental}', 'RentalController@postApply')->name('postApply');
+Route::get('/apply/{rental:slug}', 'RentalController@apply')->name('apply');
+Route::post('/apply/{rental:slug}', 'RentalController@postApply')->name('postApply');
 Route::get('/thanks', 'RentalController@thanks')->name('thanks');

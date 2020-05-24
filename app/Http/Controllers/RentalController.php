@@ -9,6 +9,7 @@ use App\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class RentalController extends Controller
 {
@@ -35,8 +36,9 @@ class RentalController extends Controller
         ]);
 
         $rental = new \App\Rental();
+        $rental->slug = Str::uuid()->serialize();
         $rental->email = $request->get('email');
-        $rental->password = \Illuminate\Support\Str::random(64);
+        $rental->password = Str::random(64);
 
         $rental->name = $request->get('name');
         $rental->address = $request->get('address');
@@ -180,7 +182,7 @@ class RentalController extends Controller
         $application->ref3_name = $request->get('ref3_name');
         $application->ref3_phone = $request->get('ref3_phone');
         $application->ref3_relationship = $request->get('ref3_relationship');
-        $application->password = \Illuminate\Support\Str::random(64);
+        $application->password = Str::random(64);
 
         $rental->applications()->save($application);
 
