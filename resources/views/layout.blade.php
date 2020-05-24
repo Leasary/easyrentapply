@@ -5,41 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ config('app.name') }}</title>
-        <style>
-            body {
-                font-size: 16px;
-                font-family: "Microsoft Sans Serif", serif;
-            }
-
-            .container {
-                max-width: 600px;
-                margin: 0 auto;
-            }
-
-            input {
-                display: block;
-                font-size: 24px;
-                width: 100%;
-            }
-
-            input[type=submit] {
-                background-color: green;
-                color: white;
-            }
-
-            h1 a {
-                text-decoration: none;
-                color: black;
-            }
-
-            .center {
-                text-align: center;
-            }
-            .small {
-                font-size: 14px;
-            }
-
-        </style>
+        <meta name="description" content="EasyRentApply lets landlords create rental applications & manage them in one single, simple & free location."/>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         @if(config('services.google_analytics.id'))
             <!-- Global site tag (gtag.js) - Google Analytics -->

@@ -8,6 +8,7 @@ use App\Mail\TenantApplicationConfirmation;
 use App\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class RentalController extends Controller
 {
@@ -58,11 +59,13 @@ class RentalController extends Controller
         return view('manage')->with('rental', $rental);
     }
 
-    public function view(Rental $rental, Application $application, $password)
+    public function view(Rental $rental, Application $application, $password, Request $request)
     {
         if ($password !== $rental->password) {
             return response()->isNotFound();
         }
+
+        $request->session()->flash('_old_input', $application->data());
 
         return view('view')->with([
             'rental' => $rental,

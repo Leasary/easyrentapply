@@ -1,9 +1,17 @@
 @extends('layout')
 
 @section('content')
-    <h2>View Application</h2>
+    <h4>View Application</h4>
 
     <a href="{{ route('manage', [$rental, $rental->password]) }}">Back to Rental</a>
+
+    <style>
+        input {
+            pointer-events: none;
+        }
+    </style>
+
+    @include('apply-form')
 
     <ul>
         @foreach($application->getAttributes() as $key => $value)

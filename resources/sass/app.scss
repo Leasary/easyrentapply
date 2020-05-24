@@ -1,1 +1,16 @@
 //
+
+@import url('normalize.css');
+@import url('skeleton.css');
+
+.container {
+    max-width: 600px;
+}
+
+h1 a {
+    text-decoration: none;
+    color: black;
+}
+.center {
+    text-align: center;
+}

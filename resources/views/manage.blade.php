@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <h2>Your Rental</h2>
+    <h4>Your Rental</h4>
 
     <p><strong>Application URL:</strong> <a href="{{ route('apply', $rental) }}">{{ route('apply', $rental) }}</a></p>
 
     <p><strong>Address:</strong> {{ $rental->fullAddress() }}</p>
 
-    <h2>Applications</h2>
+    <h4>Applications</h4>
 
     <ul>
     @foreach($rental->applications as $app)

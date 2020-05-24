@@ -1,54 +1,42 @@
 @extends('layout')
 
 @section('content')
-    <h2>Create Rental</h2>
-    <p>Simple, fast & free property applications for simplifying data collection for landlords.</p>
+    <p>EasyRentApply lets landlords create rental applications & manage them in one single, simple & free location.</p>
+    <p>You can create a new application below, and share a unique application URL with your prospective tenants. Any new
+        applications will be emailed directly to you! <strong>No sign up, no spam.</strong></p>
 
+    <h5>Create a Rental Application</h5>
     <form action="/create" method="post">
         @csrf
 
-        <label for="email">email</label>
-        <input type="email" name="email" id="email" autofocus>
-        @error("email")
-        <p>{{ $message }}</p>
-        @enderror
-        <br>
+        <div class="row">
+            <div class="six columns">
+                <x-text-input key="name" label="Your Name" autofocus/>
+            </div>
+            <div class="six columns">
+                <x-text-input type="email" key="email" label="Email"/>
+            </div>
+        </div>
 
-        <label for="name">name</label>
-        <input type="text" name="name" id="name">
-        @error("name")
-        <p>{{ $message }}</p>
-        @enderror
-        <br>
+        <p>Only your name & rental address will be shared with the tenant.</p>
 
-        <label for="address">address</label>
-        <input type="text" name="address" id="address">
-        @error("address")
-        <p>{{ $message }}</p>
-        @enderror
-        <br>
 
-        <label for="city">city</label>
-        <input type="text" name="city" id="city">
-        @error("city")
-        <p>{{ $message }}</p>
-        @enderror
-        <br>
+        <h5>Rental Property</h5>
 
-        <label for="state">state</label>
-        <input type="text" name="state" id="state">
-        @error("state")
-        <p>{{ $message }}</p>
-        @enderror
-        <br>
+        <x-text-input key="address" label="Address"/>
 
-        <label for="zipcode">zipcode</label>
-        <input type="text" name="zipcode" id="zipcode">
-        @error("zipcode")
-        <p>{{ $message }}</p>
-        @enderror
-        <br>
+        <div class="rows">
+            <div class="four columns">
+                <x-text-input key="city" label="City"/>
+            </div>
+            <div class="four columns">
+                <x-text-input key="state" label="State"/>
+            </div>
+            <div class="four columns">
+                <x-text-input key="zipcode" label="Zipcode"/>
+            </div>
+        </div>
 
-        <input type="submit">
+        <input type="submit" class="button-primary">
     </form>
 @endsection
