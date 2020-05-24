@@ -39,6 +39,6 @@ class LandlordApplicationNotice extends Mailable
         return $this->markdown('emails.landlord-application-notice')->with([
             'rental' => $this->rental,
             'application' => $this->application
-        ]);
+        ])->subject("New Application for {$this->rental->address}");
     }
 }

@@ -33,6 +33,8 @@ class LandlordRentalConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.landlord-rental-confirmation')->with('rental', $this->rental);
+        return $this->markdown('emails.landlord-rental-confirmation')
+            ->with('rental', $this->rental)
+            ->subject("View & Manage your applications for {$this->rental->address}");
     }
 }

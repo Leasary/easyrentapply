@@ -33,6 +33,7 @@ class TenantApplicationConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.tenant-application-confirmation');
+        return $this->markdown('emails.tenant-application-confirmation')
+            ->subject("Application Submitted to {$this->rental->address}");
     }
 }
