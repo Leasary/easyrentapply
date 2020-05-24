@@ -6,6 +6,8 @@
 
         <title>{{ config('app.name') }}</title>
         <meta name="description" content="EasyRentApply lets landlords create rental applications & manage them in one single, simple & free location."/>
+
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         @if(config('services.google_analytics.id'))
@@ -31,7 +33,8 @@
 
         <div class="center small">
             <p>
-                Made in Pittsburgh with ♥️
+                Made in Pittsburgh with ♥️<br>
+                Problems? Questions? <a href="mailto:luke@leasary.com?subject=EasyRentApply Question">luke@leasary.com</a>
             </p>
         </div>
     </div>
