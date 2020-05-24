@@ -3,7 +3,8 @@
 @section('content')
     <p>EasyRentApply lets landlords create rental applications & manage them in one single, simple & free location.</p>
     <p>You can create a new application below, and share a unique application URL with your prospective tenants. Any new
-        applications will be emailed directly to you! <strong>No sign up, no spam.</strong></p>
+        applications will be emailed directly to you!</p>
+    <p><strong>No sign up, no spam, no nonsense.</strong></p>
 
     <h5>Create a Rental Application</h5>
     <form action="/create" method="post">
