@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h4>Rental Application for: <br><small>{{ $rental->fullAddress() }}</small></h4>
+    <h4>Rental Application for: <br><br><small>{{ $rental->fullAddress() }}</small></h4>
 
     <br>
 
