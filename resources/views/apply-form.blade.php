@@ -124,7 +124,7 @@
 
     <div class="rows">
         <div class="four columns">
-            <x-text-input key="rh{{ $i }}_rent" label="Monthly Rent"/>
+            <x-text-input type="number" key="rh{{ $i }}_rent" label="Monthly Rent"/>
         </div>
         <div class="four columns">
             <x-select-input key="rh{{ $i }}_rent_or_own" label="Rent or Own" :options="$rentOrOwnOptions"/>
@@ -160,7 +160,7 @@
 
     <div class="rows">
         <div class="four columns">
-            <x-text-input key="eh{{ $i }}_income" label="Annual Income"/>
+            <x-text-input type="number" key="eh{{ $i }}_income" label="Annual Income"/>
         </div>
         <div class="four columns">
             <x-text-input key="eh{{ $i }}_supervisor" label="Supervisor"/>

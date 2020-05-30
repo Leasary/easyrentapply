@@ -6,9 +6,9 @@ use App\Application;
 use App\Mail\LandlordApplicationNotice;
 use App\Mail\TenantApplicationConfirmation;
 use App\Rental;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class RentalController extends Controller
@@ -67,7 +67,14 @@ class RentalController extends Controller
             return response()->isNotFound();
         }
 
-        $request->session()->flash('_old_input', $application->data());
+        $data = $application->data();
+        try {
+            $data['social_security_number'] = decrypt($data['social_security_number']);
+        } catch(DecryptException $e) {
+            $data['social_security_number'] = '';
+        }
+
+        $request->session()->flash('_old_input', $data);
 
         return view('view')->with([
             'rental' => $rental,
@@ -140,7 +147,7 @@ class RentalController extends Controller
         $application->last_name = $request->get('last_name');
         $application->date_of_birth = $request->get('date_of_birth');
         $application->phone = $request->get('phone');
-        $application->social_security_number = $request->get('social_security_number');
+        $application->social_security_number = encrypt($request->get('social_security_number'));
         $application->drivers_license_number = $request->get('drivers_license_number');
         $application->drivers_license_state = $request->get('drivers_license_state');
         $application->rh1_address = $request->get('rh1_address');
